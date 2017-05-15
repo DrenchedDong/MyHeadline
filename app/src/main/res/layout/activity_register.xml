@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+ android:orientation="vertical">
+
+<RelativeLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+    >
+
+<ImageView
+    android:layout_alignParentLeft="true"
+    android:layout_width="20dp"
+    android:layout_height="25dp"
+    android:src="@drawable/btn_back_detail_normal"
+    />
+<TextView
+    android:layout_centerHorizontal="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="手机号注册"
+    android:textSize="20dp"
+    android:padding="10dp"
+    />
+
+</RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        >
+
+
+<TextView
+    android:layout_marginTop="30dp"
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="+86"
+    android:textSize="20sp"/>
+
+    <EditText
+        android:layout_marginTop="30dp"
+        android:id="@+id/phone_input"
+        android:hint="请输入手机号"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_marginTop="30dp"
+            android:id="@+id/pwd_input"
+            android:hint="请输入密码"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_marginTop="30dp"
+            android:id="@+id/code_input"
+            android:hint="请输入验证码"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_marginTop="30dp"
+            android:id="@+id/code_get"
+            android:hint="点击获取验证码"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content" />
+    <CheckBox
+        android:checked="true"
+        android:id="@+id/agree"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="同意 《今日头条用户协议》"
+
+        />
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/register"
+        android:text="注册"
+        />
+
+
+</LinearLayout>
+</LinearLayout>

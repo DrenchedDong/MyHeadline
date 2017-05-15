@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:layout_alignParentLeft="true"
+            android:layout_width="20dp"
+            android:layout_height="25dp"
+            android:src="@drawable/btn_back_detail_normal"
+            />
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置"
+            android:textSize="30dp"
+            />
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="意见反馈"
+            android:textSize="18sp"
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        />
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:id="@+id/listshow"
+               >
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="25sp"
+                   android:layout_marginLeft="10dp"
+                   android:text="列表显示摘要"/>
+
+               <CheckBox
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentRight="true"
+                   android:layout_width="45dp"
+                   android:layout_height="40dp"
+                   />
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:id="@+id/textsize"
+               >
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="25sp"
+                   android:layout_marginLeft="10dp"
+                   android:text="字体大小"/>
+
+               <TextView
+                   android:text="中>"
+                   android:textSize="17sp"
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentRight="true"
+                   android:layout_width="45dp"
+                   android:layout_height="40dp"
+                   />
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:id="@+id/list_comment"
+               >
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="25sp"
+                   android:layout_marginLeft="10dp"
+                   android:text="列表页评论"/>
+
+               <TextView
+                   android:text="不限>"
+                   android:textSize="17sp"
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentRight="true"
+                   android:layout_width="60dp"
+                   android:layout_height="40dp"
+                   />
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:id="@+id/no_wifi"
+               >
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="25sp"
+                   android:layout_marginLeft="10dp"
+                   android:text="非wifi网络流量"/>
+
+               <TextView
+                   android:text="较省流量(智能下图)>"
+                   android:textSize="17sp"
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentRight="true"
+                   android:layout_width="wrap_content"
+                   android:layout_height="35dp"
+                   />
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:id="@+id/clean"
+               >
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="25sp"
+                   android:layout_marginLeft="10dp"
+                   android:text="清除缓存"/>
+
+               <TextView
+                   android:text="当前缓存:3.17MB>"
+                   android:textSize="17sp"
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentRight="true"
+                   android:layout_width="wrap_content"
+                   android:layout_height="40dp"
+                   />
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               >
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="25sp"
+                   android:layout_marginLeft="10dp"
+                   android:text="推送消息"/>
+
+               <CheckBox
+                   android:checked="true"
+                   android:id="@+id/pushMessage"
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentRight="true"
+                   android:layout_width="45dp"
+                   android:layout_height="40dp"
+                   />
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:id="@+id/inner_plugin"
+               >
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="25sp"
+                   android:layout_marginLeft="10dp"
+                   android:text="互动插件"/>
+
+               <CheckBox
+                   android:checked="true"
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentRight="true"
+                   android:layout_width="45dp"
+                   android:layout_height="40dp"
+                   />
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:id="@+id/auto_optimize"
+               >
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="25sp"
+                   android:layout_marginLeft="10dp"
+                   android:text="自动优化阅读"/>
+
+               <CheckBox
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentRight="true"
+                   android:layout_width="45dp"
+                   android:layout_height="40dp"
+                   />
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:id="@+id/collect_trans"
+               >
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="25sp"
+                   android:layout_marginLeft="10dp"
+                   android:text="收藏时转发"/>
+
+               <CheckBox
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentRight="true"
+                   android:layout_width="45dp"
+                   android:layout_height="40dp"
+                   />
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:id="@+id/top_optimize"
+               >
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="25sp"
+                   android:layout_marginLeft="10dp"
+                   android:text="顶踩时转发"/>
+
+               <CheckBox
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentRight="true"
+                   android:layout_width="45dp"
+                   android:layout_height="40dp"
+                   />
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:id="@+id/version"
+               >
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="25sp"
+                   android:layout_marginLeft="10dp"
+                   android:text="当前新版本"/>
+
+               <TextView
+                   android:text="当前版本4.7>"
+                   android:textSize="17sp"
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentRight="true"
+                   android:layout_width="wrap_content"
+                   android:layout_height="40dp"
+                   />
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:id="@+id/help"
+               >
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="25sp"
+                   android:layout_marginLeft="10dp"
+                   android:text="使用帮助"/>
+
+               <TextView
+                   android:text=">"
+                   android:textSize="17sp"
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentRight="true"
+                   android:layout_width="40dp"
+                   android:layout_height="40dp"
+                   />
+           </RelativeLayout>
+
+           <TextView
+               android:textColor="@color/colorPrimary"
+               android:text="今日头条用户协议"
+               android:textSize="18sp"
+               android:gravity="center"
+               android:layout_alignParentRight="true"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               />
+
+           <TextView
+               android:text="头条网 toutiao.com"
+               android:textSize="15sp"
+               android:gravity="center"
+               android:layout_alignParentRight="true"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               />
+
+       </LinearLayout>
+   </ScrollView>
+</LinearLayout>
