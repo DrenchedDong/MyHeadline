@@ -2,11 +2,13 @@ package dongting.bwei.com.headline.activity.leftactivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -19,6 +21,7 @@ import java.util.Random;
 
 import dongting.bwei.com.headline.R;
 import dongting.bwei.com.headline.bean.LoginBean;
+import dongting.bwei.com.headline.fragment.slidingFragment.LeftFragment;
 
 public class RegisterActivity extends Activity implements View.OnClickListener{
 
@@ -42,9 +45,20 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
         bt_get = (Button) findViewById(R.id.code_get);
 //同意协议
         agree = (CheckBox) findViewById(R.id.agree);
+        ImageView iv=(ImageView) findViewById(R.id.register_back);
 
         bt_next.setOnClickListener(this);
         bt_get.setOnClickListener(this);
+        iv.setOnClickListener(this);
+
+
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                new LeftFragment().setMenuVisibility(true);
+            }
+        });
     }
 
     @Override

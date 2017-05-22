@@ -97,10 +97,6 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="orientation|keyboardHidden|screenSize"/>
 
-        <activity android:name=".activity.leftactivity.SetupActivity"/>
-        <activity android:name=".activity.leftactivity.LoginActivity"/>
-        <activity android:name=".activity.leftactivity.RegisterActivity"/>
-
         <!-- 个推SDK配置开始 -->
         <!-- 配置的第三方参数属性 -->
         <meta-data
@@ -179,6 +175,17 @@
         </service>
 
         <service android:name=".services.PushIntentService"/>
+
+
+        <activity android:name=".activity.leftactivity.SetupActivity"/>
+        <activity android:name=".activity.leftactivity.LoginActivity"/>
+        <activity android:name=".activity.leftactivity.RegisterActivity"/>
+        <activity android:name=".activity.leftactivity.SearchCityActivity"/>
+        <activity android:name=".activity.leftactivity.ChannelActivity"/>
+        <activity android:name=".view.channel.newsdrag.ChannelActivity"/>
+        <activity android:name=".view.channel.event.EventActivity"/>
+        <activity android:name=".activity.leftactivity.OffLineActivity" android:theme="@style/Theme.AppCompat.Light"/>
+
     </application>
 
 </manifest>

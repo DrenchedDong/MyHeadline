@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/recommend_tv_title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="111"
+        android:textColor="@color/gray"
+        android:textSize="18sp" />
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/recommend_lv_item_hot"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"
+            android:src="@drawable/dislikeicon_textpage" />
+
+        <TextView
+            android:id="@+id/recommend_tv_author2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:text="111" />
+
+        <TextView
+            android:id="@+id/recommend_tv_comment2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/gray"
+            android:text="111" />
+
+        <TextView
+            android:id="@+id/recommend_tv_date2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:textColor="@color/gray"
+            android:text="111" />
+
+        <ImageView
+            android:id="@+id/recommend_iv_add2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/dislikeicon_textpage" />
+    </LinearLayout>
+
+
+</LinearLayout>

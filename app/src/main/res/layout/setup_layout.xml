@@ -5,30 +5,32 @@
     android:orientation="vertical">
 
     <RelativeLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
 
         <ImageView
+            android:id="@+id/setup_back"
             android:layout_alignParentLeft="true"
-            android:layout_width="20dp"
-            android:layout_height="25dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:src="@drawable/btn_back_detail_normal"
             />
         <TextView
-            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="设置"
-            android:textSize="30dp"
+            android:textSize="19sp"
             />
         <TextView
             android:layout_alignParentRight="true"
-            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="意见反馈"
-            android:textSize="18sp"
+            android:textSize="15sp"
             />
 
     </RelativeLayout>
@@ -54,14 +56,15 @@
                >
 
                <TextView
+                   android:layout_centerVertical="true"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:textSize="25sp"
+                   android:textSize="17sp"
                    android:layout_marginLeft="10dp"
                    android:text="列表显示摘要"/>
 
                <CheckBox
-                   android:layout_centerVertical="true"
+                   android:layout_centerInParent="true"
                    android:layout_alignParentRight="true"
                    android:layout_width="45dp"
                    android:layout_height="40dp"
@@ -75,16 +78,17 @@
                >
 
                <TextView
+                   android:layout_centerVertical="true"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:textSize="25sp"
+                   android:textSize="17sp"
                    android:layout_marginLeft="10dp"
                    android:text="字体大小"/>
 
                <TextView
                    android:text="中>"
-                   android:textSize="17sp"
-                   android:layout_centerVertical="true"
+                   android:textSize="15sp"
+                   android:layout_centerInParent="true"
                    android:layout_alignParentRight="true"
                    android:layout_width="45dp"
                    android:layout_height="40dp"
@@ -98,16 +102,17 @@
                >
 
                <TextView
+                   android:layout_centerVertical="true"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:textSize="25sp"
+                   android:textSize="17sp"
                    android:layout_marginLeft="10dp"
                    android:text="列表页评论"/>
 
                <TextView
                    android:text="不限>"
-                   android:textSize="17sp"
-                   android:layout_centerVertical="true"
+                   android:textSize="15sp"
+                   android:layout_centerInParent="true"
                    android:layout_alignParentRight="true"
                    android:layout_width="60dp"
                    android:layout_height="40dp"
@@ -121,16 +126,17 @@
                >
 
                <TextView
+                   android:layout_centerVertical="true"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:textSize="25sp"
+                   android:textSize="17sp"
                    android:layout_marginLeft="10dp"
                    android:text="非wifi网络流量"/>
 
                <TextView
                    android:text="较省流量(智能下图)>"
-                   android:textSize="17sp"
-                   android:layout_centerVertical="true"
+                   android:textSize="15sp"
+                   android:layout_centerInParent="true"
                    android:layout_alignParentRight="true"
                    android:layout_width="wrap_content"
                    android:layout_height="35dp"
@@ -144,16 +150,17 @@
                >
 
                <TextView
+                   android:layout_centerVertical="true"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:textSize="25sp"
+                   android:textSize="17sp"
                    android:layout_marginLeft="10dp"
                    android:text="清除缓存"/>
 
                <TextView
                    android:text="当前缓存:3.17MB>"
-                   android:textSize="17sp"
-                   android:layout_centerVertical="true"
+                   android:textSize="15sp"
+                   android:layout_centerInParent="true"
                    android:layout_alignParentRight="true"
                    android:layout_width="wrap_content"
                    android:layout_height="40dp"
@@ -166,16 +173,17 @@
                >
 
                <TextView
+                   android:layout_centerVertical="true"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:textSize="25sp"
+                   android:textSize="17sp"
                    android:layout_marginLeft="10dp"
                    android:text="推送消息"/>
 
                <CheckBox
                    android:checked="true"
                    android:id="@+id/pushMessage"
-                   android:layout_centerVertical="true"
+                   android:layout_centerInParent="true"
                    android:layout_alignParentRight="true"
                    android:layout_width="45dp"
                    android:layout_height="40dp"
@@ -189,15 +197,16 @@
                >
 
                <TextView
+                   android:layout_centerVertical="true"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:textSize="25sp"
+                   android:textSize="17sp"
                    android:layout_marginLeft="10dp"
                    android:text="互动插件"/>
 
                <CheckBox
                    android:checked="true"
-                   android:layout_centerVertical="true"
+                   android:layout_centerInParent="true"
                    android:layout_alignParentRight="true"
                    android:layout_width="45dp"
                    android:layout_height="40dp"
@@ -211,14 +220,15 @@
                >
 
                <TextView
+                   android:layout_centerVertical="true"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:textSize="25sp"
+                   android:textSize="17sp"
                    android:layout_marginLeft="10dp"
                    android:text="自动优化阅读"/>
 
                <CheckBox
-                   android:layout_centerVertical="true"
+                   android:layout_centerInParent="true"
                    android:layout_alignParentRight="true"
                    android:layout_width="45dp"
                    android:layout_height="40dp"
@@ -232,14 +242,15 @@
                >
 
                <TextView
+                   android:layout_centerVertical="true"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:textSize="25sp"
+                   android:textSize="17sp"
                    android:layout_marginLeft="10dp"
                    android:text="收藏时转发"/>
 
                <CheckBox
-                   android:layout_centerVertical="true"
+                   android:layout_centerInParent="true"
                    android:layout_alignParentRight="true"
                    android:layout_width="45dp"
                    android:layout_height="40dp"
@@ -253,14 +264,15 @@
                >
 
                <TextView
+                   android:layout_centerVertical="true"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:textSize="25sp"
+                   android:textSize="17sp"
                    android:layout_marginLeft="10dp"
                    android:text="顶踩时转发"/>
 
                <CheckBox
-                   android:layout_centerVertical="true"
+                   android:layout_centerInParent="true"
                    android:layout_alignParentRight="true"
                    android:layout_width="45dp"
                    android:layout_height="40dp"
@@ -274,16 +286,17 @@
                >
 
                <TextView
+                   android:layout_centerVertical="true"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:textSize="25sp"
+                   android:textSize="17sp"
                    android:layout_marginLeft="10dp"
                    android:text="当前新版本"/>
 
                <TextView
                    android:text="当前版本4.7>"
-                   android:textSize="17sp"
-                   android:layout_centerVertical="true"
+                   android:textSize="15sp"
+                   android:layout_centerInParent="true"
                    android:layout_alignParentRight="true"
                    android:layout_width="wrap_content"
                    android:layout_height="40dp"
@@ -299,14 +312,14 @@
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:textSize="25sp"
+                   android:textSize="17sp"
                    android:layout_marginLeft="10dp"
                    android:text="使用帮助"/>
 
                <TextView
                    android:text=">"
-                   android:textSize="17sp"
-                   android:layout_centerVertical="true"
+                   android:textSize="15sp"
+                   android:layout_centerInParent="true"
                    android:layout_alignParentRight="true"
                    android:layout_width="40dp"
                    android:layout_height="40dp"

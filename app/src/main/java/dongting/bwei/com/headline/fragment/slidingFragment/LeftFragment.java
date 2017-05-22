@@ -19,6 +19,8 @@ import org.greenrobot.eventbus.EventBus;
 import dongting.bwei.com.headline.MainActivityEvent;
 import dongting.bwei.com.headline.R;
 import dongting.bwei.com.headline.activity.leftactivity.LoginActivity;
+import dongting.bwei.com.headline.activity.leftactivity.OffLineActivity;
+import dongting.bwei.com.headline.activity.leftactivity.SearchCityActivity;
 import dongting.bwei.com.headline.activity.leftactivity.SetupActivity;
 import dongting.bwei.com.headline.constants.Constants;
 import dongting.bwei.com.headline.utils.PreferencesUtils;
@@ -34,6 +36,8 @@ public class LeftFragment extends Fragment implements View.OnClickListener{
     private View view;
     private TextView tv_more;
     private LinearLayout setup;
+    private LinearLayout search;
+    private LinearLayout offline;
 
     @Nullable
     @Override
@@ -41,10 +45,13 @@ public class LeftFragment extends Fragment implements View.OnClickListener{
         view = inflater.inflate(R.layout.leftfragment,container,false);
         tv_more = (TextView) view.findViewById(R.id.more);
         setup = (LinearLayout) view.findViewById(R.id.setup);
+        search = (LinearLayout) view.findViewById(R.id.search);
+        offline = (LinearLayout) view.findViewById(R.id.offline);
 
         tv_more.setOnClickListener(this);
         setup.setOnClickListener(this);
-
+        search.setOnClickListener(this);
+        offline.setOnClickListener(this);
 
         initView(view);
 
@@ -68,7 +75,6 @@ public class LeftFragment extends Fragment implements View.OnClickListener{
 
             }
         });
-
     }
 
     private void setBackground(boolean white){
@@ -92,8 +98,6 @@ public class LeftFragment extends Fragment implements View.OnClickListener{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
-
     }
 
     @Override
@@ -104,6 +108,12 @@ public class LeftFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.setup:
                startActivity(new Intent(getActivity(), SetupActivity.class));
+                break;
+            case R.id.search:
+                startActivity(new Intent(getActivity(), SearchCityActivity.class));
+                break;
+            case R.id.offline:
+                startActivity(new Intent(getActivity(), OffLineActivity.class));
                 break;
         }
     }

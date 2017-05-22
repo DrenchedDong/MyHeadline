@@ -3,10 +3,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <LinearLayout
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -15,19 +16,19 @@
           android:clickable="true"
           android:id="@+id/qq_icon"
           android:layout_weight="1"
-          android:layout_width="40dp"
-          android:layout_height="40dp"
+          android:layout_width="30dp"
+          android:layout_height="30dp"
           android:src="@drawable/ic_drawer_qzone"/>
       <ImageView
 
           android:layout_weight="1"
-          android:layout_width="40dp"
-          android:layout_height="40dp"
+          android:layout_width="30dp"
+          android:layout_height="30dp"
           android:src="@drawable/ic_drawer_tencent"/>
       <ImageView
           android:layout_weight="1"
-          android:layout_width="40dp"
-          android:layout_height="40dp"
+          android:layout_width="30dp"
+          android:layout_height="30dp"
           android:src="@drawable/ic_drawer_weibo"/>
 
     </LinearLayout>
@@ -35,7 +36,7 @@
     <TextView
         android:clickable="true"
         android:id="@+id/more"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,156 +47,163 @@
       android:layout_marginTop="30dp"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:id="@+id/serch"
+      android:id="@+id/search"
       android:orientation="horizontal">
     <ImageView
-        android:layout_width="40dp"
+        android:layout_width="30dp"
         android:layout_marginLeft="15dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:src="@drawable/ic_drawer_search_normal"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30dp"
+        android:textSize="20sp"
         android:layout_marginLeft="10dp"
         android:text="搜索"/>
   </LinearLayout>
 
   <LinearLayout
+      android:layout_marginTop="22dp"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:id="@+id/collect"
       android:orientation="horizontal">
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginLeft="15dp"
         android:src="@drawable/ic_drawer_favorite_normal"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30dp"
+        android:textSize="20sp"
         android:layout_marginLeft="10dp"
         android:text="收藏"/>
   </LinearLayout>
 
   <LinearLayout
+      android:layout_marginTop="22dp"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:id="@+id/message"
       android:orientation="horizontal">
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginLeft="15dp"
         android:src="@drawable/ic_drawer_message_normal"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:textSize="20sp"
         android:layout_marginLeft="10dp"
         android:text="消息"/>
   </LinearLayout>
 
   <LinearLayout
+      android:layout_marginTop="22dp"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:id="@+id/offline"
       android:orientation="horizontal">
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginLeft="15dp"
         android:src="@drawable/ic_drawer_offline_normal"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30dp"
+        android:textSize="20sp"
         android:layout_marginLeft="10dp"
         android:text="离线"/>
   </LinearLayout>
 
   <LinearLayout
+      android:layout_marginTop="22dp"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:id="@+id/activity"
       android:orientation="horizontal">
     <ImageView
-        android:layout_width="40dp"
+        android:layout_width="30dp"
         android:layout_marginLeft="15dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:src="@drawable/left_drawer_activity"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30dp"
+        android:textSize="20sp"
         android:layout_marginLeft="10dp"
         android:text="活动"/>
   </LinearLayout>
 
   <LinearLayout
+      android:layout_marginTop="22dp"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:id="@+id/setup"
       android:orientation="horizontal">
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginLeft="15dp"
         android:src="@drawable/ic_drawer_setting_normal"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30dp"
+        android:textSize="20sp"
         android:layout_marginLeft="10dp"
         android:text="设置"/>
   </LinearLayout>
 
   <LinearLayout
+      android:layout_marginTop="22dp"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:id="@+id/feedback"
       android:orientation="horizontal">
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginLeft="15dp"
         android:src="@drawable/ic_drawer_message_normal"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30dp"
+        android:textSize="20sp"
         android:layout_marginLeft="10dp"
         android:text="反馈"/>
   </LinearLayout>
   <LinearLayout
+      android:layout_marginTop="22dp"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:id="@+id/apply"
       android:orientation="horizontal">
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginLeft="15dp"
         android:src="@drawable/ic_drawer_message_normal"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30dp"
+        android:textSize="20sp"
 
         android:layout_marginLeft="10dp"
         android:text="精彩应用"/>
   </LinearLayout>
 
   <LinearLayout
-      android:layout_marginTop="30dp"
+      android:layout_marginTop="20dp"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="horizontal">
@@ -203,7 +211,7 @@
 
   <LinearLayout
       android:layout_width="wrap_content"
-      android:layout_height="100dp"
+      android:layout_height="90dp"
       android:layout_gravity="center"
       >
 

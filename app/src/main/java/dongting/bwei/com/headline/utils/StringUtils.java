@@ -3,6 +3,8 @@ package dongting.bwei.com.headline.utils;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class StringUtils {
 
@@ -26,5 +28,14 @@ public class StringUtils {
             return  byteArrayOutputStream.toString() ;
         }
 
+    }
+
+    public static String stampToDate(String s){
+        String res;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm:ss");
+        long lt = new Long(s);
+        Date date = new Date(lt);
+        res = simpleDateFormat.format(date);
+        return res;
     }
 }

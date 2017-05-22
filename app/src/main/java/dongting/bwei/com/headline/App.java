@@ -1,8 +1,13 @@
 package dongting.bwei.com.headline;
 
 import android.app.Application;
+import android.os.Environment;
 
 import com.igexin.sdk.PushManager;
+import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
@@ -12,6 +17,7 @@ import org.xutils.x;
 
 import dongting.bwei.com.headline.services.PushIntentService;
 import dongting.bwei.com.headline.services.PushService;
+import dongting.bwei.com.headline.view.channel.db.SQLHelper;
 
 /**
  * 作者:${董婷}
@@ -20,6 +26,9 @@ import dongting.bwei.com.headline.services.PushService;
  */
 
 public class App extends Application {
+
+    private static App app;
+    private SQLHelper sqlHelper;
 
     @Override
     public void onCreate() {
@@ -34,15 +43,29 @@ public class App extends Application {
 
         x.Ext.init(this);
         x.Ext.setDebug(BuildConfig.DEBUG);
+
+        app = this;
+
         initDB();
 
         PushManager.getInstance().initialize(this, PushService.class);
 
         PushManager.getInstance().registerPushIntentService(this, PushIntentService.class);
 
-
     }
 
+    public static App getApp() {
+        return app;
+    }
+
+    /** 获取数据库Helper */
+    public SQLHelper getSQLHelper() {
+
+        if (sqlHelper == null)
+            sqlHelper = new SQLHelper(app);
+        return sqlHelper;
+    }
+    //数据库操作
     public void initDB() {
 
         DbManager.DaoConfig daoConfig = new DbManager.DaoConfig()
@@ -57,5 +80,4 @@ public class App extends Application {
                 });
         //return daoConfig;
     }
-
 }

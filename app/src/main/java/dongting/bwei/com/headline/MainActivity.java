@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
@@ -32,28 +33,44 @@ import dongting.bwei.com.headline.fragment.slidingFragment.LeftFragment;
 import dongting.bwei.com.headline.fragment.slidingFragment.ListFragment;
 import dongting.bwei.com.headline.fragment.slidingFragment.RightFragment;
 import dongting.bwei.com.headline.view.IHorizontalScrollView;
+import dongting.bwei.com.headline.view.channel.newsdrag.ChannelActivity;
 
-public class MainActivity extends SlidingFragmentActivity{
+public class MainActivity extends SlidingFragmentActivity implements OnClickListener{
 
     private ViewPager viewPager;
     private WindowManager windowmanager;
     private View view;
     private WindowManager.LayoutParams layoutParams;
     private TabLayout tabLayout;
+    private ImageView iv_add;
+    private SlidingMenu slidingMenu;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+
+        ImageView iv_left= (ImageView) findViewById(R.id.title_left);
+        ImageView iv_right= (ImageView) findViewById(R.id.title_right);
+
+        iv_left.setOnClickListener(this);
+        iv_right.setOnClickListener(this);
 
         slidingMethod();
 
         tabLayout = (TabLayout) findViewById(R.id.tablayout);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
+        iv_add = (ImageView) findViewById(R.id.title_add);
+
+        iv_add.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+startActivity(new Intent(MainActivity.this, ChannelActivity.class));
+            }
+        });
 
         if(!EventBus.getDefault().isRegistered(this)){
-EventBus.getDefault().register(this);
+            EventBus.getDefault().register(this);
         }
 
         upwith();
@@ -77,25 +94,25 @@ EventBus.getDefault().register(this);
 if(event.isDay()){
     windowmanager.removeView(view);
 
-    setTabBackgroundColor(event.isDay());
-
+    setTabVpBackgroundColor(event.isDay());
 
 }else{
     windowmanager.addView(view,layoutParams);
 
-    setTabBackgroundColor(event.isDay());
+    setTabVpBackgroundColor(event.isDay());
 
 }
-
 setTextColor((ViewGroup)getWindow().getDecorView(),event.isDay());
     }
 
-    private void setTabBackgroundColor(boolean day) {
+    private void setTabVpBackgroundColor(boolean day) {
           if(day){
         tabLayout.setBackgroundColor(Color.WHITE);
+              viewPager.setBackgroundColor(Color.WHITE);
         setWhiteMode();
     }else {
         tabLayout.setBackgroundColor(Color.BLACK);
+              viewPager.setBackgroundColor(Color.BLACK);
         setNightMode();
     }
     }
@@ -139,7 +156,7 @@ for(int i=0;i<view.getChildCount();i++){
 
     private void slidingMethod() {
 
-        SlidingMenu slidingMenu = getSlidingMenu();
+        slidingMenu = getSlidingMenu();
 
         //左边
         LeftFragment leftFragment =new LeftFragment();
@@ -156,6 +173,8 @@ for(int i=0;i<view.getChildCount();i++){
         slidingMenu.setShadowDrawable(R.drawable.show);
         //设置阴影大小
         slidingMenu.setShadowWidthRes(R.dimen.shadow_width);
+
+        slidingMenu.setBackgroundResource(R.drawable.login_background_introduce);
 
         //设置侧滑视图宽度
         slidingMenu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
@@ -175,5 +194,17 @@ for(int i=0;i<view.getChildCount();i++){
         super.onActivityResult(requestCode, resultCode, data);
 
         UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.title_left:
+                slidingMenu.showMenu();
+                break;
+            case R.id.title_right:
+                slidingMenu.showSecondaryMenu();
+                break;
+        }
     }
 }

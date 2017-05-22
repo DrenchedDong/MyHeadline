@@ -2,13 +2,17 @@ package dongting.bwei.com.headline.activity.leftactivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 
 import com.igexin.sdk.PushManager;
 
 import dongting.bwei.com.headline.R;
+import dongting.bwei.com.headline.fragment.slidingFragment.LeftFragment;
 import dongting.bwei.com.headline.services.PushIntentService;
 import dongting.bwei.com.headline.utils.PreferencesUtils;
 
@@ -29,7 +33,15 @@ public class SetupActivity extends Activity {
 
         cb_pushMessage = (CheckBox) findViewById(R.id.pushMessage);
 
+        ImageView iv=(ImageView) findViewById(R.id.setup_back);
 
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                new LeftFragment().setMenuVisibility(true);
+            }
+        });
 
         Boolean push = PreferencesUtils.getValueByKey(SetupActivity.this, "push", false);
 

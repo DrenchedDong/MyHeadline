@@ -12,8 +12,9 @@
         >
 
         <ImageView
+            android:id="@+id/login_back"
             android:layout_alignParentLeft="true"
-            android:layout_width="20dp"
+            android:layout_width="25dp"
             android:layout_height="25dp"
             android:src="@drawable/btn_back_detail_normal"
             />

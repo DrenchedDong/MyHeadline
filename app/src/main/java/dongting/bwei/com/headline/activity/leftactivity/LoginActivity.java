@@ -2,10 +2,12 @@ package dongting.bwei.com.headline.activity.leftactivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -17,6 +19,7 @@ import org.xutils.x;
 import dongting.bwei.com.headline.MainActivity;
 import dongting.bwei.com.headline.R;
 import dongting.bwei.com.headline.bean.LoginBean;
+import dongting.bwei.com.headline.fragment.slidingFragment.LeftFragment;
 
 public class LoginActivity extends Activity {
 
@@ -33,11 +36,20 @@ public class LoginActivity extends Activity {
         login = (Button) findViewById(R.id.login);
         username = (EditText) findViewById(R.id.username);
         pwd = (EditText) findViewById(R.id.pwd);
+        ImageView iv=(ImageView) findViewById(R.id.login_back);
+
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                new LeftFragment().setMenuVisibility(true);
+            }
+        });
+
      login.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
           gotoLogin();
-
         }
     });
 
@@ -47,11 +59,7 @@ public class LoginActivity extends Activity {
         public void onClick(View v) {
             gotoRegister();
         }
-
-
     });
-
-
     }
 
 
