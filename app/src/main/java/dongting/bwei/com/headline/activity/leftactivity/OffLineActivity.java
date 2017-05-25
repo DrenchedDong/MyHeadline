@@ -2,8 +2,6 @@ package dongting.bwei.com.headline.activity.leftactivity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -12,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -27,11 +26,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import dongting.bwei.com.headline.MainActivity;
 import dongting.bwei.com.headline.R;
 import dongting.bwei.com.headline.asyncTask.CatagoryAsyncTask;
 import dongting.bwei.com.headline.bean.TypeBean;
 import dongting.bwei.com.headline.constants.Urls;
 import dongting.bwei.com.headline.fragment.slidingFragment.LeftFragment;
+import dongting.bwei.com.headline.utils.NetUtil;
 
 public class OffLineActivity extends Activity {
 
@@ -73,24 +74,32 @@ public class OffLineActivity extends Activity {
 
         listView.setAdapter(new MyAdpager());
 
-        try {
-            String result = new CatagoryAsyncTask().execute().get();
-
-            Gson gson =new Gson();
-            TypeBean typeBean = gson.fromJson(result, TypeBean.class);
-            types = typeBean.getData().getData();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String category = types.get(position).getCategory();
-                if(position==0){
-      download(Urls.getUrl(category));
-       }
+
+                boolean available = NetUtil.isNetworkAvailable(OffLineActivity.this);
+
+                if(available){
+                try {
+                    String result = new CatagoryAsyncTask().execute().get();
+                    Gson gson = new Gson();
+                    TypeBean typeBean = gson.fromJson(result, TypeBean.class);
+                    types = typeBean.getData().getData();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }else{
+                    Toast.makeText(OffLineActivity.this, "网络无连接，不能离线", Toast.LENGTH_SHORT).show();
+            }
+
+                if (position == 0) {
+                    Toast.makeText(OffLineActivity.this, "离线成功", Toast.LENGTH_SHORT).show();
+                    String category = OffLineActivity.this.types.get(position).getCategory();
+                    download(Urls.getUrl(category));
+                }
             }
 
             private void download(String url) {
@@ -101,15 +110,15 @@ public class OffLineActivity extends Activity {
                     @Override
                     public void onSuccess(String result) {
 
-                        File file=new File(Environment.getExternalStorageDirectory(),"offline.txt");
+                        File file=new File(getCacheDir(),"offline.txt");
 
-                       // Log.e("DownloadCacheDirectory", Environment.getDownloadCacheDirectory().getAbsolutePath());
                         try {
                             file.delete();
                             file.createNewFile();
 
                             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(file))));
                             bw.write(result.toCharArray());
+
                             bw.close();
                         } catch (Exception e) {
                             e.printStackTrace();

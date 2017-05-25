@@ -1,41 +1,46 @@
 package dongting.bwei.com.headline;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bwei.slidingmenu.SlidingMenu;
 import com.bwei.slidingmenu.app.SlidingFragmentActivity;
+import com.google.gson.Gson;
 import com.umeng.socialize.UMShareAPI;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.Arrays;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
 import java.util.List;
 
 import dongting.bwei.com.headline.adapter.TabAdapter;
+import dongting.bwei.com.headline.asyncTask.CatagoryAsyncTask;
+import dongting.bwei.com.headline.bean.TypeBean;
 import dongting.bwei.com.headline.fragment.slidingFragment.LeftFragment;
-import dongting.bwei.com.headline.fragment.slidingFragment.ListFragment;
 import dongting.bwei.com.headline.fragment.slidingFragment.RightFragment;
-import dongting.bwei.com.headline.view.IHorizontalScrollView;
+import dongting.bwei.com.headline.listener.OfflineListener;
+import dongting.bwei.com.headline.utils.NetUtil;
+import dongting.bwei.com.headline.utils.StringUtils;
 import dongting.bwei.com.headline.view.channel.newsdrag.ChannelActivity;
 
-public class MainActivity extends SlidingFragmentActivity implements OnClickListener{
+public class MainActivity extends SlidingFragmentActivity implements OnClickListener,OfflineListener{
 
     private ViewPager viewPager;
     private WindowManager windowmanager;
@@ -44,6 +49,8 @@ public class MainActivity extends SlidingFragmentActivity implements OnClickList
     private TabLayout tabLayout;
     private ImageView iv_add;
     private SlidingMenu slidingMenu;
+    private List<TypeBean.DataBeanX.DataBean> types;
+    private String result;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -76,6 +83,42 @@ startActivity(new Intent(MainActivity.this, ChannelActivity.class));
         upwith();
 
         initBackgroud();
+    }
+
+    private String getTypeResult() {
+        String result =null;
+        try {
+            boolean available = NetUtil.isNetworkAvailable(MainActivity.this);
+
+            if(available){
+                result = new CatagoryAsyncTask().execute().get();
+                System.out.println(result);
+                File file=new File(getCacheDir(),"typeResult.txt");
+
+                file.delete();
+                file.createNewFile();
+
+                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(file))));
+                bw.write(result.toCharArray());
+
+                bw.close();
+
+            }else{
+                File file = new File(getCacheDir(), "typeResult.txt");
+                InputStream is = new FileInputStream(file);
+
+                result = StringUtils.inputStreamToString(is);
+            }
+
+            Gson gson =new Gson();
+            TypeBean typeBean = gson.fromJson(result, TypeBean.class);
+
+            types = typeBean.getData().getData();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     private void initBackgroud() {
@@ -141,9 +184,20 @@ for(int i=0;i<view.getChildCount();i++){
 }
     }
 
-    private void upwith() {
+    @Override
+    public String get() {
 
-        TabAdapter tabAdapter =new TabAdapter(getSupportFragmentManager());
+        return getTypeResult();
+    }
+    Gson gson =new Gson();
+
+    private void upwith() {
+        result = getTypeResult();
+        TypeBean typeBean = gson.fromJson(result, TypeBean.class);
+        types =    typeBean.getData().getData();
+        TabAdapter tabAdapter =new TabAdapter(getSupportFragmentManager(),types);
+        //tabAdapter.setOfflineListener(this);
+
         viewPager.setAdapter(tabAdapter);
 
         tabLayout.setupWithViewPager(viewPager);

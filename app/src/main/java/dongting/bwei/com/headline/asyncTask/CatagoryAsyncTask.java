@@ -31,13 +31,19 @@ public class CatagoryAsyncTask extends AsyncTask<String,Object,String> {
             HttpURLConnection httpUrlConnection = (HttpURLConnection)url.openConnection();
 
             httpUrlConnection.setRequestMethod("GET");
-            httpUrlConnection.setReadTimeout(5000);
-            httpUrlConnection.setConnectTimeout(5000);
+            httpUrlConnection.setReadTimeout(2000);
+            httpUrlConnection.setConnectTimeout(2000);
 
-            InputStream inputStream = httpUrlConnection.getInputStream();
-            String s = StringUtils.inputStreamToString(inputStream);
+            httpUrlConnection.setDoInput(true);
+            //httpUrlConnection.setDoOutput(true);
 
-            return  s;
+            if(httpUrlConnection.getResponseCode()==200){
+                InputStream inputStream = httpUrlConnection.getInputStream();
+                String s = StringUtils.inputStreamToString(inputStream);
+                System.out.println(s);
+                return  s;
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -47,6 +53,7 @@ public class CatagoryAsyncTask extends AsyncTask<String,Object,String> {
 
     @Override
     protected void onPostExecute(String s) {
+        System.out.println(s);
         super.onPostExecute(s);
     }
 }

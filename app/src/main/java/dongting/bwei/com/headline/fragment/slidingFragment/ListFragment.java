@@ -1,17 +1,12 @@
 package dongting.bwei.com.headline.fragment.slidingFragment;
 
-import android.graphics.Color;
-import android.graphics.PixelFormat;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -19,15 +14,9 @@ import com.liaoinstan.springview.container.DefaultFooter;
 import com.liaoinstan.springview.container.DefaultHeader;
 import com.liaoinstan.springview.widget.SpringView;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,8 +24,8 @@ import dongting.bwei.com.headline.R;
 import dongting.bwei.com.headline.adapter.ListAdapter;
 import dongting.bwei.com.headline.asyncTask.ListAsyncTask;
 import dongting.bwei.com.headline.bean.TuijianBean;
-import dongting.bwei.com.headline.dao.RecommendDao;
 import dongting.bwei.com.headline.utils.NetUtil;
+import dongting.bwei.com.headline.utils.StringUtils;
 
 /**
  * 作者:${董婷}
@@ -48,7 +37,6 @@ public class ListFragment extends Fragment {
 
     private SpringView springView;
     private ListView listView;
-    private String url;
     int page=3;
 
     private List<TuijianBean.DataBean> dataBeanList =new ArrayList<>();
@@ -60,9 +48,6 @@ public class ListFragment extends Fragment {
         View view=inflater.inflate(R.layout.recommend,container,false);
         springView = (SpringView) view.findViewById(R.id.springview);
         listView = (ListView) view.findViewById(R.id.listview);
-
-        Bundle bundle = getArguments();
-        url = bundle.getString("url");
 
         return view;
     }
@@ -110,13 +95,18 @@ public class ListFragment extends Fragment {
             String s=null;
 
             if(available){
+                Bundle bundle = getArguments();
+                String url = bundle.getString("url");
+
                  s = new ListAsyncTask().execute(url).get();
+
             }else{
-                    File file = new File(Environment.getExternalStorageDirectory(), "offline.txt");
+                Toast.makeText(getActivity(), "网络无连接，无法刷新", Toast.LENGTH_SHORT).show();
+                    File file = new File(getActivity().getCacheDir(), "offline.txt");
                     InputStream is = new FileInputStream(file);
 
-                    BufferedReader br = new BufferedReader(new InputStreamReader(is));
-                    s= br.readLine();
+                s = StringUtils.inputStreamToString(is);
+
             }
 
             Gson gson =new Gson();
